@@ -1,0 +1,33 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Song letter photos
+    match /song_letter_photos/{allPaths=**} {
+      // Anyone can read
+      allow read: if true;
+      
+      // Only authenticated users can upload
+      allow write: if request.auth != null &&
+        request.resource.size < 5 * 1024 * 1024 && // 5MB limit
+        request.resource.contentType.matches('image/.*');
+    }
+    
+    // Legacy path support
+    match /songletters/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null &&
+        request.resource.size < 5 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/.*');
+    }
+    
+    // Reply photos
+    match /replies/{allPaths=**} {
+      allow read: if true;
+      
+      allow write: if request.auth != null &&
+        request.resource.size < 5 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/.*');
+    }
+  }
+}

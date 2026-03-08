@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "songLetters": {
+      ".indexOn": ["code", "sender_id"],
+      ".read": true,
+      ".write": "auth != null",
+      "$letterId": {
+        ".read": true,
+        ".write": "auth != null"
+      }
+    },
+    "replies": {
+      ".indexOn": ["song_letter_id"],
+      ".read": true,
+      ".write": "auth != null",
+      "$replyId": {
+        ".read": true,
+        ".write": "auth != null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}

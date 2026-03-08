@@ -1,0 +1,53 @@
+name: cassettenote
+description: CassetteNote - Send songs with personal letters
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase
+  firebase_core: ^4.5.0
+  firebase_auth: ^6.2.0
+  firebase_database: ^12.1.4
+  firebase_storage: ^13.1.0
+  google_sign_in: ^6.2.1
+  
+  # UI
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  flutter_spinkit: ^5.2.0
+  
+  # Networking
+  http: ^1.1.2
+  
+  # Image handling
+  image_picker: ^1.0.7
+  cached_network_image: ^3.3.1
+  
+  # Video/Song embedding
+  flutter_inappwebview: ^6.0.0
+  url_launcher: ^6.2.3
+  
+  # State management
+  provider: ^6.1.1
+  
+  # Utils
+  intl: ^0.18.1
+  crypto: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/animations/
